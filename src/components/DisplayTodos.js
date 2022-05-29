@@ -23,6 +23,8 @@ const DisplayTodos = (props) => {
 
     const [sort, setSort] = useState("active")
 
+    // console.log('props.todos', props.todos)
+
     return (
         <div className="displaytodos">
             <div className="buttons">
@@ -37,7 +39,41 @@ const DisplayTodos = (props) => {
                 </button>
             </div>
             <ul>
-                {(props.todos.length > 0 && sort === "all")
+                {
+                    (props.todos.length > 0) && (
+                        <>
+                            {sort === "all" && props.todos.map((item) => {
+                                return <TodoItem
+                                    key={item.id}
+                                    item={item}
+                                    removeTodo={props.removeTodo}
+                                    updateTodo={props.updateTodo}
+                                    completeTodo={props.completeTodo}
+                                />
+                            })}
+                            {sort === "active" && props.todos.map((item) => {
+                                return !item.completed && <TodoItem
+                                    key={item.id}
+                                    item={item}
+                                    removeTodo={props.removeTodo}
+                                    updateTodo={props.updateTodo}
+                                    completeTodo={props.completeTodo}
+                                />
+                            })}
+                            {sort === "completed" && props.todos.map((item) => {
+                                return item.completed && <TodoItem
+                                    key={item.id}
+                                    item={item}
+                                    removeTodo={props.removeTodo}
+                                    updateTodo={props.updateTodo}
+                                    completeTodo={props.completeTodo}
+                                />
+                            })}
+                        </>
+                    )
+                }
+
+                {/* {(props.todos.length > 0 && sort === "all")
                     ? props.todos.map((item) => {
                         return <TodoItem
                             key={item.id}
@@ -72,7 +108,7 @@ const DisplayTodos = (props) => {
                                 />
                             )
                         })
-                }
+                } */}
             </ul>
         </div>
     )
