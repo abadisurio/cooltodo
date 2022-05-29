@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import "./css/main.css";
 import './App.css';
 import DisplayTodos from './components/DisplayTodos';
 import Todos from './components/Todos';
