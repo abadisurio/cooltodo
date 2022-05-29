@@ -24,8 +24,8 @@ const DisplayTodos = (props) => {
     const [sort, setSort] = useState("active")
 
     return (
-        <div>
-            <div>
+        <div className="displaytodos">
+            <div className="buttons">
                 <button onClick={() => setSort("active")}>
                     Active
                 </button>

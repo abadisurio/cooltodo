@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 const Todos = (props) => {
     const [todo, setTodo] = useState("")
 
-    console.log('props', props)
+    // console.log('props', props)
 
     const handleChange = (e) => {
         setTodo(e.target.value)
